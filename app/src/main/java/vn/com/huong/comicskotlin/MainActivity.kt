@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                     banners -> banner_slider.setAdapter(MainSliderAdapter(banners))
                 },
                         {
-                            error -> Toast.makeText(baseContext, "Error: " + error, Toast.LENGTH_SHORT).show()
+                            error -> Toast.makeText(this@MainActivity, "Error: " + error, Toast.LENGTH_SHORT).show()
                         }))
     }
 
@@ -81,21 +81,21 @@ class MainActivity : AppCompatActivity() {
                     comicList -> tvNewComic.text = StringBuilder("NEW COMIC (")
                             .append(comicList.size)
                         .append(")")
-                    rcvComic.adapter = MyComicAdapter(baseContext, comicList)
+                    rcvComic.adapter = MyComicAdapter(this@MainActivity, comicList)
                     dismissDialog(dialog)
                 },
                         {
-                            error -> Toast.makeText(baseContext, "Error: " + error.message, Toast.LENGTH_SHORT).show()
+                            error -> Toast.makeText(this@MainActivity, "Error: " + error.message, Toast.LENGTH_SHORT).show()
                             dismissDialog(dialog)
                         }))
     }
 
     private fun reloadBannerAndComic() {
-        if (Common.isConnectedToInternet(baseContext)) {
+        if (Common.isConnectedToInternet(this@MainActivity)) {
             fetchBanner()
             fetchComic()
         }else{
-            Toast.makeText(baseContext, "Please check your connection", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, "Please check your connection", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -117,7 +117,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
-                    Toast.makeText(baseContext, "Please grant permission to app work", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "Please grant permission to app work", Toast.LENGTH_SHORT).show()
                 }
                 return
             }
@@ -130,5 +130,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    override fun onStop() {
+        compositeDisposable.clear()
+        super.onStop()
+    }
 }

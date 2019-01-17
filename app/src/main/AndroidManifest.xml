@@ -22,8 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Chapter.ChapterActivity"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".Chapter.ChapterActivity"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".detail.ViewDetailActivity"></activity>
     </application>
 
 </manifest>

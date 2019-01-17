@@ -6,4 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".Chapter.ChapterActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@android:color/black"
+        app:titleTextColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tvChapterComic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEW Chapter (10)"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/horizontal_line"
+        app:layout_constraintBottom_toBottomOf="@+id/tvChapterComic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvChapterComic" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcvChapter"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:scrollbars="vertical"
+        android:layout_marginTop="10dp"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_chapter"
+        app:layout_constraintTop_toBottomOf="@+id/tvChapterComic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </android.support.constraint.ConstraintLayout>

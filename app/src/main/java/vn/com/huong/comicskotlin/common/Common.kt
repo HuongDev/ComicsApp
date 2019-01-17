@@ -6,6 +6,7 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import vn.com.huong.comicskotlin.Retrofit.ApiClient
 import vn.com.huong.comicskotlin.Retrofit.IComicAPI
+import vn.com.huong.comicskotlin.model.Chapter
 import vn.com.huong.comicskotlin.model.Comic
 
 /**
@@ -15,6 +16,12 @@ object Common {
 
     // Save selected comic
     var selectedComic : Comic? = null
+
+    var chapterList : List<Chapter> = mutableListOf()
+
+    var selectedChapter : Chapter? = null
+    var chapterIndex : Int? = 0
+
 
     // Call Api
     val api: IComicAPI
@@ -41,5 +48,10 @@ object Common {
         }
 
         return false
+    }
+
+    fun formatString(name: String?): CharSequence {
+        val result = StringBuilder(if (name!!.length > 15) name.substring(0, 15) + "..." else name)
+        return result.toString()
     }
 }
