@@ -23,12 +23,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:launchMode="singleTask"></activity>
+            android:name=".MainActivity" />
         <activity
-            android:name=".Chapter.ChapterActivity"
-            android:launchMode="singleTask"></activity>
-        <activity android:name=".detail.ViewDetailActivity"></activity>
+            android:name=".Chapter.ChapterActivity" />
+        <activity android:name=".detail.ViewDetailActivity" />
+        <activity android:name=".category.CategoryFilterActivity"></activity>
     </application>
 
 </manifest>

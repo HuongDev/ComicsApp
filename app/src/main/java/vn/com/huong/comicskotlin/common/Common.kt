@@ -6,6 +6,7 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import vn.com.huong.comicskotlin.Retrofit.ApiClient
 import vn.com.huong.comicskotlin.Retrofit.IComicAPI
+import vn.com.huong.comicskotlin.model.Category
 import vn.com.huong.comicskotlin.model.Chapter
 import vn.com.huong.comicskotlin.model.Comic
 
@@ -22,6 +23,7 @@ object Common {
     var selectedChapter : Chapter? = null
     var chapterIndex : Int? = 0
 
+    var categoriesList: List<Category> = ArrayList()
 
     // Call Api
     val api: IComicAPI

@@ -2,6 +2,7 @@ package vn.com.huong.comicskotlin
 
 import android.Manifest
 import android.app.Dialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -15,6 +16,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import ss.com.bannerslider.Slider
 import vn.com.huong.comicskotlin.Retrofit.IComicAPI
+import vn.com.huong.comicskotlin.category.CategoryFilterActivity
 import vn.com.huong.comicskotlin.common.Common
 import vn.com.huong.comicskotlin.common.GridItemDecoration
 import vn.com.huong.comicskotlin.service.PicassoImageLoadingService
@@ -50,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         } else {
             swipeRefresh.post { reloadBannerAndComic() }
         }
+
+        // Event search
+        imvSearch.setOnClickListener { startActivity(Intent(this@MainActivity, CategoryFilterActivity::class.java)) }
     }
 
     private fun fetchBanner() {
